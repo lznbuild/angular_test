@@ -14,6 +14,7 @@ import { NewsComponent } from "./views/news/news.component";
 
 // NgModule 为其中的组件提供了一个编译上下文环境
 // NgModule 的参数用来描述AppModule模块
+// declarations 声明当前模块使用的组件，指令，管道 
 @NgModule({
   declarations: [
     AppComponent,
