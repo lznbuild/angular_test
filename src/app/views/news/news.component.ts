@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivateRoute } from '@angular/router'; 
+import { ActivatedRoute } from '@angular/router'; 
 
 @Component({
   selector: 'app-news',

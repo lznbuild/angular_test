@@ -17,6 +17,11 @@ export class AppComponent {
     active: true
   };
   getMsg = "无";
+  count = 0;
+  
+  changeCount() {
+    this.count+=1
+  }
 
   handleClick(e, i) {
     console.log(e, i);
@@ -29,38 +34,41 @@ export class AppComponent {
   }
 
   constructor() {
-    // console.log("constructor调用");
+    console.log("constructor调用");
   }
 
-  // ngOnInit() {
-  //   console.log("第一次显示数据绑定和指令输入属性后调用，只调用一次");
-  // }
+  ngOnChanges() {
+    console.log("ng onchanges 数据发生变化时调用");
+  }
 
-  // ngDoCheck() {
-  //   console.log("进行检测");
-  // }
+  ngOnInit() {
+    console.log("ng oninit ");
+  }
 
-  // ngAfterContentInit() {
-  //   console.log("数据内容渲染到视图上之后调用");
-  // }
+  // 首次渲染，oninit ··
 
-  // ngAfterContentChecked() {
-  //   console.log("数据内容渲染到视图检测之后检测");
-  // }
+  ngAfterContentInit() {
+    console.log("ng after content init ");
+  }
 
-  // ngAfterViewInit() {
-  //   console.log("完成组件和子组件的初始化完成");
-  // }
+  ngAfterViewInit() {
+    console.log("ng after view init ");
+  }
 
-  // ngAfterViewChecked() {
-  //   console.log("完成组件和子组件的初始化完成检测");
-  // }
 
-  // ngOnChanges() {
-  //   console.log("数据发生变化之前调用");
-  // }
+  ngDoCheck() {
+    console.log("ng do check");
+  }
+
+  ngAfterContentChecked() {
+    console.log("ng agter content checked ");
+  }
+
+  ngAfterViewChecked() {
+    console.log("ng after view checked ");
+  }
 
   // ngOnDestory() {
-  //   console.log("销毁");
+  //   console.log("ng ondestory 销毁");
   // }
 }

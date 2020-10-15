@@ -317,7 +317,8 @@
 <div>子组件消息：{{getMsg}}</div>
 <!-- <app-child [content111]="content" (childMsg)="getEvent($event)"></app-child> -->
 <h1 [appLcstyle]="'abc'">888</h1>
-
+<div>{{ count }}</div><button (click)="changeCount()">xiugaiß</button>
+<app-test [count]="count"></app-test>
 
 <div>
   <span [routerLink]="['/page1']" routerLinkActive="router-link-active" >11111</span>

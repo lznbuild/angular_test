@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule ,ReactiveFormsModule} from "@angular/forms";
 import { RouterModule } from "@angular/router";
 
 import { LcPipe } from "./filter/lc.pipe";
@@ -10,6 +10,7 @@ import { LcstyleDirective } from "./directive/lcstyle.directive";
 import { AppComponent } from "./app.component";
 import { ChildComponent } from "./views/child/child.component";
 import { NewsComponent } from "./views/news/news.component";
+import { TestComponent } from './views/test2/test.component';
 
 
 // NgModule 为其中的组件提供了一个编译上下文环境
@@ -21,11 +22,14 @@ import { NewsComponent } from "./views/news/news.component";
     NewsComponent,
     LcPipe,
     ChildComponent,
-    LcstyleDirective
+    LcstyleDirective,
+    TestComponent,
   ],
   // 此模块需要来自BrowserModule中的素材
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+
     FormsModule,
     RouterModule,
     RouterModule.forRoot([
