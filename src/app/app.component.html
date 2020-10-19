@@ -299,6 +299,17 @@
 </style>
 
 <!-- Toolbar -->
+<div #childDom>test test child</div>
+<div #domTest>这里是dom</div>
+<button (click)="getDom(domTest)">获取dom</button>
+<h1>11</h1>
+<ng-container [ngTemplateOutlet]="tpl"></ng-container>
+<span>I am last span</span>
+<ng-template #tpl>
+    <span>I am span in template</span>
+</ng-template>
+
+<h1>22</h1>
 <div class="toolbar" role="banner">
   hello world !
       <!-- <span class="{{title}}">{{ title }} app is running!</span><br />
@@ -308,20 +319,29 @@
 
       <input type="text" [(ngModel)]="title">
       <div>{{title}}</div>
-      <div [innerHtml]="htmlStr"></div>
+      <!-- <div [innerHtml]="htmlStr"></div> -->
       <div *ngFor="let item of arr;let i=index" (click)="handleClick($event, item)">{{i}}-{{item}}</div>
+      <form #itemForm (ngSubmit)="onSubmit(itemForm)">
+        <label for="name"
+          >Name <input class="form-control" name="name" ngModel required />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
 </div>
 
 <div class="content" role="main">
 <!-- <app-news></app-news> -->
 <div>子组件消息：{{getMsg}}</div>
 <!-- <app-child [content111]="content" (childMsg)="getEvent($event)"></app-child> -->
-<h1 [appLcstyle]="'abc'">888</h1>
+<!-- <h1 [appLcstyle]="'abc'">888</h1> -->
 <div>{{ count }}</div><button (click)="changeCount()">xiugaiß</button>
-<app-test [count]="count"></app-test>
-
+<app-test [count]="count">
+  <div>7878</div>
+</app-test>
+<hr />
 <div>
   <span [routerLink]="['/page1']" routerLinkActive="router-link-active" >11111</span>
+  <br />
   <span [routerLink]="['/page2']" routerLinkActive="router-link-active" >22222</span>
 </div>
 <router-outlet></router-outlet>

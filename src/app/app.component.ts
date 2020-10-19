@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild,ViewContainerRef,TemplateRef,ElementRef } from '@angular/core';
 
 
 // 参数被称为元数据 ，此组件和模板，共同组成了视图
@@ -8,6 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+  @ViewChild('domTest') domTest: ElementRef;
+  @ViewChild('childDom') childDom: TemplateRef<any>;
+  @ViewChild('domTest') domTest2: TemplateRef<any>;
+  @ViewChild('domTest',{read: ViewContainerRef}) domTest3:ViewContainerRef;
+
   title = "lznbuild";
   content = "content";
   htmlStr = "<b>123</b><style>div{color:black;}</style>";
@@ -33,6 +38,15 @@ export class AppComponent {
     this.getMsg = event.msg;
   }
 
+  getDom(dom) {
+    console.log(dom)
+  }
+
+  onSubmit(formData){
+
+    console.log(formData,'formData')
+  }
+
   constructor() {
     console.log("constructor调用");
   }
@@ -43,9 +57,9 @@ export class AppComponent {
 
   ngOnInit() {
     console.log("ng oninit ");
+
   }
 
-  // 首次渲染，oninit ··
 
   ngAfterContentInit() {
     console.log("ng after content init ");
@@ -53,6 +67,11 @@ export class AppComponent {
 
   ngAfterViewInit() {
     console.log("ng after view init ");
+    console.log(this.domTest,'11111111111')
+    console.log(this.domTest2,'2222222222')
+    console.log(this.domTest3,'4333333333')
+    this.domTest3.createEmbeddedView(this.childDom) 
+
   }
 
 
